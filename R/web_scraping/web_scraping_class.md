@@ -36,3 +36,32 @@ links.3 <- try(getHTMLLinks(as.character(read_html(mainPageURL))))
 
 links <- getHTMLLinks(htmlParse(GET(mainPageURL)))
 grepl(pattern = '1980', x = links)
+
+## code from hw3
+#---------Exp Analysis----------CITI BIKE--------------#
+
+url<-"https://s3.amazonaws.com/tripdata/202512-citibike-tripdata.zip"
+
+temp<-tempfile()
+options(timeout=300)
+download.file(url,temp)
+#Unzipthezipfile
+zip_contents<-unzip(temp,list=TRUE)
+#Loopthrougheach.csvfileinthezipcontents
+for(i in 1:length(zip_contents$Name)){
+  #Checkiffileendswith.csv
+  if(grepl("\\.csv$",zip_contents$Name[i])){
+    #Readthe.csvfileandstoreitinavariablenamedafterthefile
+    df<-read.csv(unz(temp,zip_contents$Name[i]),stringsAsFactors=FALSE)
+    #Assignthedatatothevariable
+    assign(gsub("\\.csv$","",zip_contents$Name[i]),df)
+  }
+}
+#Combine thedataintoonelargerdataframe
+citibike.trips<-rbind(`202512-citibike-tripdata_1`, `202512-citibike-tripdata_2`,
+                      `202512-citibike-tripdata_3`)
+#Removethezipfilefromyourtemporaryfileslocation
+unlink(temp)
+#Removeunneededobjectsfromthe Environment
+rm(df, `202512-citibike-tripdata_1`, `202512-citibike-tripdata_2`,
+   `202512-citibike-tripdata_3`)
