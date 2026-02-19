@@ -1,3 +1,5 @@
+- good reference: https://rpubs.com/calebbraun/rentfaster
+
 #-------------part2---------------
 
 #install.packages("purrr") 
