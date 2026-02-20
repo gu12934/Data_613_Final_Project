@@ -68,3 +68,28 @@ Residual standard error: 70.48 on 87 degrees of freedom
   (143 observations deleted due to missingness)
 Multiple R-squared:  0.02953,	Adjusted R-squared:  -0.01509 
 F-statistic: 0.6618 on 4 and 87 DF,  p-value: 0.6202
+---------------------------------
+# --- FIXED MODEL 3 PREDICTION ---
+
+# 1. Ensure 'segment' is a factor in your main data (if not already)
+rent_analysis$segment <- as.factor(rent_analysis$segment)
+
+# 2. Create the prediction data frame
+pred_data <- data.frame(
+  final_price = 1800, 
+  segment = "Apartment/Condo"
+)
+
+# 3. THE FIX: Match the factor levels of the main data
+pred_data$segment <- factor(pred_data$segment, levels = levels(rent_analysis$segment))
+
+# 4. Now run the prediction again
+prob <- predict(model_incentive, pred_data, type = "response")
+
+cat("\n--- ACTIONABLE RECOMMENDATION ---\n")
+cat("Based on the logistic model, a $1,800 apartment has a", round(prob * 100, 1), "% chance of an incentive.\n")
+
+---
+--- ACTIONABLE RECOMMENDATION ---
+> cat("Based on the logistic model, a $1,800 apartment has a", round(prob * 100, 1), "% chance of an incentive.\n")
+Based on the logistic model, a $1,800 apartment has a NA % chance of an incentive.
