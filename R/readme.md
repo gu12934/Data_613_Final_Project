@@ -2,7 +2,7 @@
 # Calgary Rental Market Analysis - DATA 613 Final Project
 
 ## Project Structure
-.
+
 ├── README.md
 ├── data/
 │   ├── raw/                # Uncleaned scrapes from RentFaster API
