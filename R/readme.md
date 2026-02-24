@@ -1,10 +1,13 @@
-
 # Calgary Rental Market Analysis - DATA 613 Final Project
 
-## Project Structure
+This project investigates the relationship between Bank of Canada (BoC) interest rates and the Calgary rental market using automated data collection, statistical modeling, and predictive analytics.
 
-- ├── README.md
-- ├── data/
+## 📁 Project Structure
+
+```bash
+.
+├── README.md
+├── data/
 │   ├── raw/                # Uncleaned scrapes from RentFaster API
 │   └── processed/          # Cleaned datasets used for modelling
 ├── R/
