@@ -3,8 +3,8 @@
 
 ## Project Structure
 
-├── README.md
-├── data/
+- ├── README.md
+- ├── data/
 │   ├── raw/                # Uncleaned scrapes from RentFaster API
 │   └── processed/          # Cleaned datasets used for modelling
 ├── R/
