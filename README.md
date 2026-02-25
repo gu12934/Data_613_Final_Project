@@ -104,5 +104,4 @@ Estimate how long it takes for rate changes to affect prices
 Great for policy‑impact analysis
 
 <img width="928" height="228" alt="image" src="https://github.com/user-attachments/assets/b08755ac-ce2e-49d6-bf5f-424e8650adae" />
-<img width="928" height="228" alt="image" src="https://github.com/user-attachments/assets/b08755ac-ce2e-49d6-bf5f-424e8650adae" />
 
