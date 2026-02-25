@@ -23,7 +23,12 @@ This project investigates the relationship between Bank of Canada (BoC) interest
     └── Final_Project_Slides.pdf  # 15-25 minute presentation file
 ```
 
-    Question Mapping Confirmation
+# This has the combined code, with some of the model files but not all of them yet
+```
+https://github.com/gu12934/Data_613_Final_Project/blob/main/R/final/combined_code_1.r
+```
+
+# Question Mapping Confirmation
 Primary Q1 (Interest vs Inventory): Analyzed via model_q1.
 
 Secondary Q1.2 (Time Lag): Handled in the joined_data temporal join.
