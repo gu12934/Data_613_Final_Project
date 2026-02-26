@@ -25,7 +25,7 @@ This project investigates the relationship between Bank of Canada (BoC) interest
 
 # This has the combined code, with some of the model files but not all of them yet
 ```
-https://github.com/gu12934/Data_613_Final_Project/blob/main/R/final/combined_code_1.r
+https://github.com/gu12934/Data_613_Final_Project/blob/main/R/final/
 ```
 
 # Question Mapping Confirmation
