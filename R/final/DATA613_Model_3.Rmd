@@ -1,0 +1,144 @@
+---
+title: "Data613 - Model 3"
+output: html_document
+date: "2026-03-01"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+```{r}
+# Load Required Libraries
+library(httr)
+library(rvest)
+library(stringr)
+library(ggplot2)
+library(janitor) 
+library(dplyr)
+library(readr)
+library(jsonlite)
+library(tidyr)
+library(lubridate)
+library(purrr)
+library(broom)
+library(corrplot)
+library(GGally)
+library(car)
+```
+
+
+
+```{r}
+model_q3 <- glm(has_incentive ~ final_price + segment, data = rent_clean, family = "binomial")
+model_q3
+```
+
+```{r}
+table(rent_clean$segment, rent_clean$has_incentive)
+```
+
+```{r}
+rent_space_data <- rent_clean %>% 
+  filter(!is.na(final_sqft), final_sqft > 0, final_sqft < 10000)
+
+# Model: Price predicted by Sq. Ft. and Segment interaction
+# This tells us if 1 sq. ft. is "more expensive" in a Condo vs a House
+model_q3_alt <- lm(final_price ~ final_sqft * segment, data = rent_space_data)
+
+summary(model_q3_alt)
+```
+
+```{r}
+# 1. Standard Diagnostic Plots
+plot(model_q3_alt, which = 2)
+```
+
+```{r}
+shapiro.test(residuals(model_q3_alt))
+```
+
+```{r}
+# Calculate the Variance Inflation Factor
+vif_results <- vif(model_q3_alt)
+
+# Print the results
+print(vif_results)
+```
+
+```{r}
+# Log-Log Model: Handling the non-linear relationship and outliers
+model_log <- lm(log(final_price) ~ log(final_sqft) * segment, data = rent_space_data)
+
+# 1. Check the new summary
+summary(model_log)
+
+# 2. Re-run the Normality Test
+shapiro.test(residuals(model_log))
+
+
+```
+
+```{r}
+# 3. Re-run Diagnostic Plots
+par(mfrow=c(2,2)) # View 4 plots at once
+plot(model_log)
+```
+
+
+```{r}
+vif_results <- vif(model_log)
+
+# Print the results
+print(vif_results)
+```
+
+
+
+```{r}
+ggplot(rent_space_data, aes(x = final_sqft, y = final_price, color = segment)) +
+  geom_point(alpha = 0.3) +
+  geom_smooth(method = "lm") +
+  labs(title = "Rent vs. Square Footage by Segment",
+       x = "Square Feet",
+       y = "Monthly Rent ($)") +
+  theme_minimal()
+```
+
+
+```{r}
+# 1. Generate predictions from your new model
+rent_space_data$predicted_price <- predict(model_q3_alt, rent_space_data)
+
+# 2. Plot Predicted vs. Actual
+ggplot(rent_space_data, aes(x = predicted_price, y = final_price, color = segment)) +
+  geom_point(alpha = 0.4) +
+  geom_abline(intercept = 0, slope = 1, linetype = "dashed", color = "black", linewidth = 1) +
+  labs(title = "Model Accuracy: Predicted vs. Actual Rent Prices",
+       subtitle = "Points closer to the dashed line indicate higher model accuracy",
+       x = "Predicted Rent ($)",
+       y = "Actual Rent ($)",
+       color = "Property Type") +
+  theme_minimal() +
+  scale_y_continuous(labels = scales::dollar) +
+  scale_x_continuous(labels = scales::dollar)
+```
+
+
+
+```{r}
+# Add residuals to your dataframe
+rent_space_data <- rent_space_data %>%
+  mutate(residual = final_price - predicted_price)
+
+# Define "Extreme Outliers" as those where actual rent is >$1,000 more than predicted
+outliers <- rent_space_data %>% 
+  filter(residual > 1000) %>%
+  arrange(desc(residual))
+
+# Summary of these outliers
+cat("Number of extreme outliers found:", nrow(outliers), "\n")
+summary(outliers$final_price)
+```
