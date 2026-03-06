@@ -1,5 +1,7 @@
 # Guidelines for the Final Project Presentation
 
+Presentation: https://docs.google.com/presentation/d/1unK8RoolQc7MND2cAwBqaK5k71rQBxJY/edit?slide=id.p1#slide=id.p1
+
 # Keep presentations between 15 to 25 minutes in length. 
 - Before going into the project details, you need to first motivate the project and set the context for us. What questions did you ask in your study?
 - After giving us a high-level understanding of what the project is about and who would benefit from your study, discuss your data collection process and your data sources (for each question, if different questions have different data sources) before discussing the findings.
