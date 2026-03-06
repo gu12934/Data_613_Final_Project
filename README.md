@@ -1,6 +1,6 @@
 # Data_613_Final_Project
 
-Presentation: https://docs.google.com/presentation/d/1unK8RoolQc7MND2cAwBqaK5k71rQBxJY/edit?slide=id.p1#slide=id.p1
+
 
 Project Proposal
 
