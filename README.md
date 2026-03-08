@@ -1,5 +1,6 @@
 # Data_613_Final_Project
 textbook: https://trevorhastie.github.io/ISLR/
+https://www.itl.nist.gov/div898/handbook/eda/section1/eda11.htm
 
 Project Proposal
 
