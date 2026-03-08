@@ -1,6 +1,5 @@
 # Data_613_Final_Project
-
-
+textbook: https://trevorhastie.github.io/ISLR/
 
 Project Proposal
 
