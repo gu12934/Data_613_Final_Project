@@ -2,7 +2,7 @@
 
 # 👨🏻‍💻How Do Housing Prices in Alberta Respond to Interest Rate Changes?🕵️
 
-<img width="203" height="148" alt="image" src="https://github.com/user-attachments/assets/46f0db96-332a-4c30-8c74-bd6d4b75ab74" />
+<img width="1000" height="600" alt="image" src="https://github.com/user-attachments/assets/46f0db96-332a-4c30-8c74-bd6d4b75ab74" />
 
 ***
 ## Project Overview
