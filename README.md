@@ -1,40 +1,39 @@
 # Data_613_Final_Project
-- textbook: https://trevorhastie.github.io/ISLR/
-- https://www.itl.nist.gov/div898/handbook/eda/section1/eda11.htm
-- https://otexts.com/fpp3/
 
-Project Proposal
+# 👨🏻‍💻How Do Housing Prices in Alberta Respond to Interest Rate Changes?🕵️
 
-Project Title
-How Do Housing Prices in Alberta Respond to Interest Rate Changes?
+<img width="203" height="148" alt="image" src="https://github.com/user-attachments/assets/46f0db96-332a-4c30-8c74-bd6d4b75ab74" />
 
-Project Overview
+***
+## Project Overview
 This project investigates the relationship between Bank of Canada interest rate changes and housing prices across Alberta. With recent rate hikes and ongoing affordability concerns, understanding how monetary policy affects regional housing markets is both timely and relevant. Our goal is to quantify the strength, direction, and timing of this relationship using publicly available economic and real‑estate data.
-
-Motivation
+***
+## Motivation
 Alberta’s housing market has behaved differently from other provinces due to population inflows, economic cycles, and affordability.
 Interest rates are one of the most influential macroeconomic levers affecting mortgages and housing demand.
 Understanding this relationship can help policymakers, buyers, and investors anticipate market shifts.
-
-Research Questions
-What is the historical relationship between Bank of Canada interest rates and average housing prices in Alberta
-Do housing prices respond immediately to rate changes, or is there a lag
-Are major Alberta cities (Calgary, Edmonton) more sensitive to rate changes than the provincial average
-How does the effect of interest rates compare to other factors such as population growth or inventory levels
-Expected Deliverables
+***
+## Research Questions
+- What is the historical relationship between Bank of Canada interest rates and average housing prices in Alberta
+- Do housing prices respond immediately to rate changes, or is there a lag
+- Are major Alberta cities (Calgary, Edmonton) more sensitive to rate changes than the provincial average
+- How does the effect of interest rates compare to other factors such as population growth or inventory levels
+***
+## Expected Deliverables
 Cleaned dataset combining interest rates, housing prices, and optional control variables
 Visualizations showing trends, correlations, and lagged effects
 Regression or time‑series model estimating the impact of rate changes
 
 A final presentation summarizing insights and recommendations
-
-2. Data Plan
+***
+## Data Plan
 Data Sources (Web‑Scrapable + Downloadable)
-Interest Rates (Bank of Canada)
-Bank of Canada – Policy Interest Rate History
+- Interest Rates (Bank of Canada)
+- Bank of Canada – Policy Interest Rate History
  https://www.bankofcanada.ca/rates/interest-rates/canadian-interest-rates/ (bankofcanada.ca in Bing)
  Scrapable table with dates + rate values.
-Housing Prices
+
+- Housing Prices
 You have several strong options:
 1. Calgary Real Estate Board (CREB)
 Monthly benchmark prices
@@ -52,8 +51,8 @@ Optional Control Variables
 Population growth (StatCan)
 Unemployment rate (StatCan)
 Housing inventory / sales volume (CREB or AREA)
-
-Variables to Collect
+***
+## Variables to Collect
 Category
 Variable
 Description
@@ -72,9 +71,8 @@ For merging datasets
 Optional Controls
 Population, Unemployment, Inventory
 Helps isolate interest‑rate effects
-
-
-Data Cleaning Steps
+***
+## Data Cleaning Steps
 Scrape tables from BoC, CREB, AREA, or StatCan using Python (requests, BeautifulSoup, or pandas.read_html).
 Convert dates to a consistent monthly format (e.g., YYYY‑MM).
 Handle missing values (interpolate or drop).
@@ -82,9 +80,8 @@ Merge datasets on the date column.
 Create lagged variables (e.g., interest rate lagged by 1–6 months).
 Normalize or scale variables if needed for modeling.
 Check for stationarity if using time‑series models.
-
-3. Modeling Plan
-You can choose one or combine multiple approaches.
+***
+## Modeling Plan
 A. Correlation + Exploratory Analysis
 Plot interest rates vs. housing prices
 Compute Pearson correlation
@@ -107,4 +104,8 @@ Estimate how long it takes for rate changes to affect prices
 Great for policy‑impact analysis
 
 <img width="928" height="228" alt="image" src="https://github.com/user-attachments/assets/b08755ac-ce2e-49d6-bf5f-424e8650adae" />
+
+- textbook: https://trevorhastie.github.io/ISLR/
+- https://www.itl.nist.gov/div898/handbook/eda/section1/eda11.htm
+- https://otexts.com/fpp3/
 
